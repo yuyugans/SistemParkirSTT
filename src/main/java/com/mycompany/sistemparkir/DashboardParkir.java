@@ -71,6 +71,8 @@ public class DashboardParkir extends javax.swing.JFrame {
     } catch (SQLException e) {
         System.out.println("Gagal mengambil data: " + e.getMessage());
     }
+    
+    tampilkanStatistik(lKendaraan, lPendapatan );
 }
     public static void tampilkanStatistik(JLabel lblKendaraan, JLabel lblPendapatan) {
     try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_data_parkir", "root", "")) {
