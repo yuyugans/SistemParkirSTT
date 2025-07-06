@@ -12,7 +12,7 @@ public class SistemParkir {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        new DashboardParkir().setVisible(true);
+        new LoginForm().setVisible(true);
         
         //tes koneksi data base
         if (KoneksiDB.getConnection() != null) {
