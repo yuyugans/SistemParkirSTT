@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2025 at 11:28 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Jul 07, 2025 at 04:18 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_data_parkir`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nama_admin` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`, `nama_admin`) VALUES
+(1, 'admin', 'admin123', 'Admin Parkir');
 
 -- --------------------------------------------------------
 
@@ -62,7 +82,9 @@ INSERT INTO `parkir` (`id_parkir`, `barcode`, `tipe`, `waktu_masuk`) VALUES
 (35, '20250621142425', 'guest', '2025-06-21 14:24:25'),
 (38, '20250623160402', 'guest', '2025-06-23 16:04:02'),
 (39, '20250623160411', 'guest', '2025-06-23 16:04:11'),
-(40, '20250623160414', 'guest', '2025-06-23 16:04:14');
+(40, '20250623160414', 'guest', '2025-06-23 16:04:14'),
+(41, '20250623190004', 'guest', '2025-06-23 19:00:04'),
+(43, '20250626131549', 'guest', '2025-06-26 13:15:49');
 
 -- --------------------------------------------------------
 
@@ -91,6 +113,13 @@ INSERT INTO `riwayat_parkir` (`id`, `barcode`, `tipe`, `waktu_masuk`, `waktu_kel
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Indexes for table `anggota`
 --
 ALTER TABLE `anggota`
@@ -114,6 +143,12 @@ ALTER TABLE `riwayat_parkir`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
@@ -123,7 +158,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `parkir`
 --
 ALTER TABLE `parkir`
-  MODIFY `id_parkir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_parkir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `riwayat_parkir`
